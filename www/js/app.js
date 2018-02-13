@@ -20,5 +20,15 @@ angular.module('starter', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+  })
+  })
+  .controller("takePicture",function($scope, $http){
+    $scope.takePhoto = function(){
+      navigator.camera.getPicture(function(imageData){
+        console.log(imageData);
+      }, function(message){
+        console.log(message);
+      },
+      { quality: 50 });
+    };
   });
-})
